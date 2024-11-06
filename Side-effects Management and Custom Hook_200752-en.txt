@@ -1,0 +1,158 @@
+Welcome to a video on
+side-effects management and custom hook.
+After watching this video,
+you will be able to define the role
+of useEffect and side effects in React,
+describe how useEffect and side effects work in React,
+describe the various dependencies in useEffect,
+describe a custom hook and React.
+UseEffect is a React hook that allows
+you to perform side effects in functional components.
+A side effect refers to any operation that
+you need to execute as soon as the page loads,
+without calling those
+operations/functionalities separately,
+such as fetching data from an API,
+subscribing to events,
+manipulating the DOM, or setting timers.
+Side effects are actions that occur asynchronously,
+which affect the application's state or the UI.
+Here's a simple example to understand
+useEffect and the side effects in React.
+Suppose we have a component that fetches a list of
+food items from an API and displays them.
+In this code example,
+the components are as follows.
+State management with useState.
+The component utilizes the useState hook
+to manage the state within a functional component.
+Specifically, it declares a state variable
+named foods using useState,
+initializing it with an empty array.
+This variable will later
+hold the data fetched from the API.
+Performing side effects with useEffect.
+The useEffect hook is employed to
+execute side effects in functional components.
+In this component, useEffect
+is utilized to fetch data from
+an external API when the component mounts. Data fetching.
+Inside the useEffect hook,
+a fetch request is made to
+the specified API endpoint as shown.
+The fetch function returns a promise
+that resolves to the response from the server.
+Upon receiving the response,
+response.json parses the response body as JSON.
+The parsed JSON data is
+then available in the next then block,
+where it is logged to the console for
+debugging purposes and subsequently
+passed to setFoods to update
+the food state variable with the fetch data.
+If an error occurs during the fetch operation,
+it is caught in the catch block,
+and an error message is logged to the console.
+Rendering the fetched data,
+in the JSX returned by the component,
+a list ul,
+of food items is rendered.
+The map method is used to iterate over
+the foods array and generate a list item,
+li, for each food item.
+For each food item,
+details such as name, description,
+price, category, ingredients, and an image are displayed.
+The image is rendered using the image tag with the URL
+obtained from the image_url property of each food item.
+Component export.
+Finally, the SideEffect component
+is exported as the default export,
+making it available for use
+in other parts of the application.
+In React's useEffect hook,
+dependencies refer to variables or values
+which are used to determine when useEffect should run.
+Dependencies are specified as
+an array argument to the useEffect function.
+The following are some dependencies.
+When you provide an empty dependency array,
+the effect runs only once
+when the component will load for the first time.
+It does not depend on any
+specific variable or state changes.
+This behavior is used to execute
+tasks only once at the time of loading.
+For example, in the code,
+the page will only load once at the loading of this page.
+When you provide values in the dependency array,
+the effect runs whenever any of these values change.
+For example, foods value as shown in the code.
+If any of the dependencies have
+changed since the last render,
+React will rerun the effect.
+In the code, the page
+loads only when there are changes in
+the details fetched from the URL
+specified in the fetch API method,
+which you have stored in the foods variable.
+Therefore, you include the foods variable
+in the dependency array of the useEffect hook.
+If you omit the dependency array entirely,
+the effect will run after every render,
+including the initial render and subsequent updates.
+This means that the effect will execute both after
+the initial render and
+after every re-render of the component,
+regardless of whether you change any values.
+This behavior with no dependency
+will cause the effect to run after every render.
+You can use a custom hook
+in React to create reusable logic.
+Custom hooks allow you to abstract complex logic that you
+can easily reuse across
+different components in your application.
+Let us understand this with an example.
+You have two components, ToggleButton and UseToggle.
+Let's go through the ToggleButton code.
+The ToggleButton component imports and
+utilizes a custom hook named UseToggle,
+which uses the logic for
+toggling between true and false states.
+Within the ToggleButton component,
+the UseToggle hook is
+used to manage the state of a button.
+The hook returns two values,
+is toggled, representing the current state,
+either true or false, and toggle
+a function that toggles the state
+between true and false when invoked.
+In the JSX, a button is rendered with
+a text content of "on" when
+the state is true and "off" when the state is false.
+Upon clicking the button,
+the toggle function is triggered,
+updating the state accordingly.
+This setup provides a simple and reusable way to
+create toggle functionality within React components.
+The reusable code of
+the UseToggle custom hook is as shown.
+It manages the true and false state of the ToggleButton.
+The output before clicking
+the "Toggle" button will be as shown.
+After clicking the "Toggle" button,
+the output will be as shown.
+This toggle will be
+performed as long as the user clicks on the button.
+In this video, you learned that useEffect is
+a React hook that allows you to perform
+side effects in functional components.
+Side effects are actions that occur asynchronously,
+affecting the application state or UI.
+In React's useEffect hook,
+dependencies refer to variables or
+values which are used to
+determine when useEffect should run.
+Custom hooks allow you to abstract complex logic
+that you can easily reuse across
+different components in your application.
